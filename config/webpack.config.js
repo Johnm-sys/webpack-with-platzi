@@ -3,13 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //16° para trabajar c
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');   //25° se trae el plugin para trabaar con css
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); //28° optimiza el codigo css
 const TerserPlugin = require('terser-webpack-plugin');  //29° optimizacion de codigo javascript
-const { cleanWebpackPlugin } = require('clean-webpack-plugin'); //30° limpia el archivo build o dist
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //30° limpia el archivo build o dist
 
 
 module.exports = {
     entry: './src/index.js',       //1° donde esta la entrada
     output: {                       //2° como va a salir el recurso ya preparado
-        path: path.resolve(__dirname, 'build'),  //3° __dirname donde estamos ubicados
+        path: path.resolve(__dirname, '../build'),  //3° __dirname donde estamos ubicados
         filename: 'bundle.js',          //4° nombre del resultado
         publicPath: "/"                 //31° se genera una direccion para publicar
     },
@@ -56,7 +56,7 @@ module.exports = {
         new MiniCssExtractPlugin({         //28° nombre del resultado
             filename: './[name].css'
         }),
-        new cleanWebpackPlugin()       //35° Se agrega la funcionalidad de limpieza
+        new CleanWebpackPlugin()       //35° Se agrega la funcionalidad de limpieza
     ],
     optimization: {
         minimize: true,
